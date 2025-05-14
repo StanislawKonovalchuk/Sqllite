@@ -10,3 +10,5 @@ class Student(Base):
     email: Mapped[str] = mapped_column(String(120), unique=True, nullable=False)
     age: Mapped[int] = mapped_column(Integer, unique=True, nullable=False)
    
+    def __repr__(self):
+        return f"<Student(id={self.id}, name={self.name}, email={self.email}, age={self.age})>"

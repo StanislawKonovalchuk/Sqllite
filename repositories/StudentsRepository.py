@@ -8,7 +8,7 @@ class StudentRepository:
     def get_by_id(self, student_id: int) -> Student | None:
         return self.db.query(Student).filter(Student.id == student_id).first()
 
-    def get_by_username(self, name: str) -> Student | None:
+    def get_by_name(self, name: str) -> Student | None:
         return self.db.query(Student).filter(Student.name == name).first()
 
     def get_all(self) -> list[Student]:

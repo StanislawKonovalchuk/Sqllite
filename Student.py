@@ -6,5 +6,6 @@ if __name__ == "__main__":
     Base.metadata.create_all(bind=engine)
 
     service = StudentService()
-    student = service.add_student("admin", "admin@example.com", 21)
-    print(student)
+    students = service.get_all_student()
+    for student in students:
+        print(student)

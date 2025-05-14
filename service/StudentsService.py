@@ -13,3 +13,22 @@ class StudentService:
             student = Student(name=name, email=email, age=age)
             return self.repository.create(student)
         return None
+    
+    def daleted_student(self, id: int) -> Student | None:
+        if id != 0:
+            return self.repository.delete(id)
+        return None
+    
+    def get_by_id_student(self, id: int) -> Student | None:
+        if id != 0:
+            return self.repository.get_by_id(id)
+        return None
+    
+    def get_by_name_student(self, name: str) -> Student | None:
+        if name.strip:
+            return self.repository.get_by_name(name)
+        return None
+    
+    def get_all_student(self)-> list[Student]:
+        return self.repository.get_all()
+    
