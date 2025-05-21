@@ -1,11 +1,11 @@
-from service import StudentService
+from Controler import StudentController
 from Models import Base
 from database import engine
+from flask import Flask
 
 if __name__ == "__main__":
     Base.metadata.create_all(bind=engine)
 
-    service = StudentService()
-    students = service.get_all_student()
-    for student in students:
-        print(student)
+app = Flask(__name__)
+controller = StudentController(app)
+app.run(debug=True)

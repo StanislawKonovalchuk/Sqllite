@@ -32,3 +32,7 @@ class StudentService:
     def get_all_student(self)-> list[Student]:
         return self.repository.get_all()
     
+    def update_student(self, id: int, name: str = None, email: str = None, age: int = None) -> Student | None:
+        if id != 0 and name.strip() and email.strip():
+            return self.repository.update(id, name=name, email=email, age=age)
+        return None

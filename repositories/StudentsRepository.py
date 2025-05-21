@@ -27,3 +27,14 @@ class StudentRepository:
             self.db.commit()
             return True
         return False
+    
+    def update(self, student_id: int, name: str = None, email: str = None, age: int = None) -> Student | None:
+        student = self.get_by_id(student_id)
+        if student:
+            student.name = name
+            student.email = email
+            student.age = age
+            self.db.commit()
+            self.db.refresh(student)
+            return student
+        return None

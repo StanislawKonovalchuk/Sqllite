@@ -12,3 +12,12 @@ class Student(Base):
    
     def __repr__(self):
         return f"<Student(id={self.id}, name={self.name}, email={self.email}, age={self.age})>"
+    
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'username': self.name,
+            'email': self.email,
+            'age': self.age,
+            'created_at': self.created_at.isoformat()
+        }
